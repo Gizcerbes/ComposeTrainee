@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
 		super.onCreate(savedInstanceState)
 		setContent {
 			ComposeTraneeTheme {
-				Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+				Surface(modifier = Modifier, color = MaterialTheme.colorScheme.background) {
 					NavigationScreen.Show()
 				}
 			}

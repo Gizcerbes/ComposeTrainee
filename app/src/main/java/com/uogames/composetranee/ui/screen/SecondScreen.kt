@@ -5,10 +5,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +24,7 @@ object SecondScreen {
 	fun Show(
 		modifier: Modifier = Modifier.fillMaxSize()
 	) {
-		Box(modifier = modifier.fillMaxSize()) {
+		Box(modifier = modifier) {
 			Column {
 				First()
 				HorizontalDivider(modifier = Modifier.fillMaxWidth())
@@ -33,6 +33,8 @@ object SecondScreen {
 				Third()
 				HorizontalDivider(modifier = Modifier.fillMaxWidth())
 				Fourth()
+				HorizontalDivider(modifier = Modifier.fillMaxWidth())
+				Fifth()
 			}
 		}
 	}
@@ -61,8 +63,7 @@ object SecondScreen {
 		Column(
 			modifier = Modifier
 				.background(Color.Green)
-				.fillMaxWidth()
-			,
+				.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
 			Text(text = "Hello")
@@ -71,13 +72,15 @@ object SecondScreen {
 	}
 
 	@Composable
-	private fun Fourth(){
-		Row {
+	private fun Fourth() {
+		Row(modifier = Modifier
+			.background(Color.Gray)
+			.height(200.dp)
+		) {
 			Column(
 				modifier = Modifier
-					.fillMaxWidth(0.25f)
-					.height(100.dp)
-					.background(Color.LightGray),
+					.fillMaxHeight()
+					.fillMaxWidth(0.25f),
 				horizontalAlignment = Alignment.CenterHorizontally,
 				verticalArrangement = Arrangement.Center
 			) {
@@ -87,9 +90,8 @@ object SecondScreen {
 			}
 			Column(
 				modifier = Modifier
-					.fillMaxWidth(0.33f)
-					.height(100.dp)
-					.background(Color.LightGray),
+					.fillMaxHeight()
+					.fillMaxWidth(0.33f),
 				horizontalAlignment = Alignment.CenterHorizontally,
 				verticalArrangement = Arrangement.SpaceBetween
 			) {
@@ -99,9 +101,8 @@ object SecondScreen {
 			}
 			Column(
 				modifier = Modifier
-					.fillMaxWidth(0.5f)
-					.height(100.dp)
-					.background(Color.LightGray),
+					.fillMaxHeight()
+					.fillMaxWidth(0.5f),
 				horizontalAlignment = Alignment.CenterHorizontally,
 				verticalArrangement = Arrangement.SpaceEvenly
 			) {
@@ -111,9 +112,8 @@ object SecondScreen {
 			}
 			Column(
 				modifier = Modifier
-					.fillMaxWidth(1f)
-					.height(100.dp)
-					.background(Color.LightGray),
+					.fillMaxHeight()
+					.fillMaxWidth(1f),
 				horizontalAlignment = Alignment.CenterHorizontally,
 				verticalArrangement = Arrangement.SpaceAround
 			) {
@@ -122,7 +122,47 @@ object SecondScreen {
 				Text(text = "Around")
 			}
 		}
+	}
 
+	@Composable
+	private fun Fifth() {
+		Column(
+			modifier = Modifier
+				.fillMaxWidth()
+				.background(Color.Cyan)
+		) {
+			Row(modifier = Modifier.fillMaxWidth()) {
+				repeat(3) { Text(text = it.toString()) }
+			}
+			Row(
+				modifier = Modifier.fillMaxWidth(),
+				horizontalArrangement = Arrangement.Center,
+				verticalAlignment = Alignment.CenterVertically
+			) {
+				repeat(3) { Text(text = it.toString()) }
+			}
+			Row(
+				modifier = Modifier.fillMaxWidth(),
+				horizontalArrangement = Arrangement.SpaceBetween,
+				verticalAlignment = Alignment.Bottom
+			) {
+				repeat(3) { Text(text = it.toString()) }
+			}
+			Row(
+				modifier = Modifier.fillMaxWidth(),
+				horizontalArrangement = Arrangement.SpaceEvenly,
+				verticalAlignment = Alignment.Top
+			) {
+				repeat(3) { Text(text = it.toString()) }
+			}
+			Row(
+				modifier = Modifier.fillMaxWidth(),
+				horizontalArrangement = Arrangement.SpaceAround,
+				verticalAlignment = Alignment.CenterVertically
+			) {
+				repeat(3) { Text(text = it.toString()) }
+			}
+		}
 	}
 
 

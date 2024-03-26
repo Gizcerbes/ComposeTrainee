@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -14,23 +15,13 @@ import androidx.navigation.compose.rememberNavController
 object NavigationScreen {
 	private data class Destination(
 		val route: String,
-		val routeWithParams: String
+		val routeWithParams: String = route
 	)
 
-	private val navigator = Destination(
-		route = "navigator",
-		routeWithParams = "navigator"
-	)
-
-	private val first = Destination(
-		route = "first",
-		routeWithParams = "first"
-	)
-
-	private val second = Destination(
-		route = "second",
-		routeWithParams = "second"
-	)
+	private val navigator = Destination(route = "navigator")
+	private val first = Destination(route = "first")
+	private val second = Destination(route = "second")
+	private val third = Destination(route = "third")
 
 
 	@Composable
@@ -46,6 +37,9 @@ object NavigationScreen {
 			composable(second.route) {
 				SecondScreen.Show()
 			}
+			composable(third.route) {
+				ThirdScreen.Show()
+			}
 		}
 
 	}
@@ -54,7 +48,10 @@ object NavigationScreen {
 	private fun Buttons(
 		navController: NavHostController
 	) {
-		Column(modifier = Modifier.fillMaxSize()) {
+		Column(
+			modifier = Modifier.fillMaxSize(),
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
 			Button(onClick = { navController.navigate(first.routeWithParams) }) {
 				Text(text = "First")
 			}
@@ -62,6 +59,9 @@ object NavigationScreen {
 				onClick = { navController.navigate(second.routeWithParams) }
 			) {
 				Text(text = "Second")
+			}
+			Button(onClick = { navController.navigate(third.route) }) {
+				Text(text = "Third")
 			}
 		}
 	}
