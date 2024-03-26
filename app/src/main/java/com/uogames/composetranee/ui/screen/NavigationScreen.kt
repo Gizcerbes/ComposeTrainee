@@ -22,6 +22,7 @@ object NavigationScreen {
 	private val first = Destination(route = "first")
 	private val second = Destination(route = "second")
 	private val third = Destination(route = "third")
+	private val fifth = Destination(route = "fifth")
 
 
 	@Composable
@@ -40,6 +41,9 @@ object NavigationScreen {
 			composable(third.route) {
 				ThirdScreen.Show()
 			}
+			composable(fifth.route){
+				FifthScreen.Show()
+			}
 		}
 
 	}
@@ -55,13 +59,14 @@ object NavigationScreen {
 			Button(onClick = { navController.navigate(first.routeWithParams) }) {
 				Text(text = "First")
 			}
-			Button(
-				onClick = { navController.navigate(second.routeWithParams) }
-			) {
+			Button(onClick = { navController.navigate(second.routeWithParams) }) {
 				Text(text = "Second")
 			}
 			Button(onClick = { navController.navigate(third.route) }) {
 				Text(text = "Third")
+			}
+			Button(onClick = { navController.navigate(fifth.route) }) {
+				Text(text = "Fifth")
 			}
 		}
 	}
