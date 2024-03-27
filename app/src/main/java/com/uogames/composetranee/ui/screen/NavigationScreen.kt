@@ -1,7 +1,9 @@
 package com.uogames.composetranee.ui.screen
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,6 +24,7 @@ object NavigationScreen {
 	private val first = Destination(route = "first")
 	private val second = Destination(route = "second")
 	private val third = Destination(route = "third")
+	private val forth = Destination(route = "forth")
 	private val fifth = Destination(route = "fifth")
 
 
@@ -41,6 +44,9 @@ object NavigationScreen {
 			composable(third.route) {
 				ThirdScreen.Show()
 			}
+			composable(forth.route){
+				ForthScreen.Show()
+			}
 			composable(fifth.route){
 				FifthScreen.Show()
 			}
@@ -52,21 +58,41 @@ object NavigationScreen {
 	private fun Buttons(
 		navController: NavHostController
 	) {
-		Column(
+		Box(
 			modifier = Modifier.fillMaxSize(),
-			horizontalAlignment = Alignment.CenterHorizontally
+			contentAlignment = Alignment.TopCenter,
 		) {
-			Button(onClick = { navController.navigate(first.routeWithParams) }) {
-				Text(text = "First")
-			}
-			Button(onClick = { navController.navigate(second.routeWithParams) }) {
-				Text(text = "Second")
-			}
-			Button(onClick = { navController.navigate(third.route) }) {
-				Text(text = "Third")
-			}
-			Button(onClick = { navController.navigate(fifth.route) }) {
-				Text(text = "Fifth")
+			Column(modifier = Modifier.fillMaxWidth(0.4f)){
+				Button(
+					modifier = Modifier.fillMaxWidth(),
+					onClick = { navController.navigate(first.routeWithParams) }
+				) {
+					Text(text = "First")
+				}
+				Button(
+					modifier = Modifier.fillMaxWidth(),
+					onClick = { navController.navigate(second.routeWithParams) }
+				) {
+					Text(text = "Second")
+				}
+				Button(
+					modifier = Modifier.fillMaxWidth(),
+					onClick = { navController.navigate(third.route) }
+				) {
+					Text(text = "Third")
+				}
+				Button(
+					modifier = Modifier.fillMaxWidth(),
+					onClick = { navController.navigate(forth.route) }
+				) {
+					Text(text = "Fourth")
+				}
+				Button(
+					modifier = Modifier.fillMaxWidth(),
+					onClick = { navController.navigate(fifth.route) }
+				) {
+					Text(text = "Fifth")
+				}
 			}
 		}
 	}
