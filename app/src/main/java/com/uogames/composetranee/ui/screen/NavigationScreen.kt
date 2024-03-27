@@ -26,6 +26,7 @@ object NavigationScreen {
 	private val third = Destination(route = "third")
 	private val forth = Destination(route = "forth")
 	private val fifth = Destination(route = "fifth")
+	private val sixth = Destination(route = "sixth")
 
 
 	@Composable
@@ -44,11 +45,14 @@ object NavigationScreen {
 			composable(third.route) {
 				ThirdScreen.Show()
 			}
-			composable(forth.route){
+			composable(forth.route) {
 				ForthScreen.Show()
 			}
-			composable(fifth.route){
+			composable(fifth.route) {
 				FifthScreen.Show()
+			}
+			composable(sixth.route) {
+				SixthScreen.Show()
 			}
 		}
 
@@ -62,7 +66,7 @@ object NavigationScreen {
 			modifier = Modifier.fillMaxSize(),
 			contentAlignment = Alignment.TopCenter,
 		) {
-			Column(modifier = Modifier.fillMaxWidth(0.4f)){
+			Column(modifier = Modifier.fillMaxWidth(0.4f)) {
 				Button(
 					modifier = Modifier.fillMaxWidth(),
 					onClick = { navController.navigate(first.routeWithParams) }
@@ -92,6 +96,12 @@ object NavigationScreen {
 					onClick = { navController.navigate(fifth.route) }
 				) {
 					Text(text = "Fifth")
+				}
+				Button(
+					modifier = Modifier.fillMaxWidth(),
+					onClick = { navController.navigate(sixth.route) }
+				) {
+					Text(text = "Sixth")
 				}
 			}
 		}

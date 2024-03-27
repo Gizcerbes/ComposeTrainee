@@ -39,6 +39,7 @@ object FifthScreen {
 				Third()
 				HorizontalDivider()
 				Forth()
+				HorizontalDivider()
 			}
 		}
 	}
