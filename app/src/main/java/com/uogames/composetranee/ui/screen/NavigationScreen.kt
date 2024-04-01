@@ -4,11 +4,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -50,54 +54,41 @@ object NavigationScreen {
 		navController: NavHostController
 	) {
 		Box(
-			modifier = Modifier.fillMaxSize(),
+			modifier = Modifier
+				.fillMaxSize()
+				.padding(16.dp),
 			contentAlignment = Alignment.TopCenter,
 		) {
-			Column(modifier = Modifier.fillMaxWidth(0.4f)) {
-				Button(
-					modifier = Modifier.fillMaxWidth(),
-					onClick = { navController.navigate(first.routeWithParams) }
-				) {
-					Text(text = "First")
-				}
-				Button(
-					modifier = Modifier.fillMaxWidth(),
-					onClick = { navController.navigate(second.routeWithParams) }
-				) {
-					Text(text = "Second")
-				}
-				Button(
-					modifier = Modifier.fillMaxWidth(),
-					onClick = { navController.navigate(third.route) }
-				) {
-					Text(text = "Third")
-				}
-				Button(
-					modifier = Modifier.fillMaxWidth(),
-					onClick = { navController.navigate(forth.route) }
-				) {
-					Text(text = "Fourth")
-				}
-				Button(
-					modifier = Modifier.fillMaxWidth(),
-					onClick = { navController.navigate(fifth.route) }
-				) {
-					Text(text = "Fifth")
-				}
-				Button(
-					modifier = Modifier.fillMaxWidth(),
-					onClick = { navController.navigate(sixth.route) }
-				) {
-					Text(text = "Sixth")
-				}
-				Button(
-					modifier = Modifier.fillMaxWidth(),
-					onClick = { navController.navigate(seventh.route) }
-				) {
-					Text(text = "Seventh")
+			LazyVerticalGrid(columns = GridCells.Fixed(2)) {
+				items(Buttons.entries.size){
+					Buttons.entries[it].run(navController)
 				}
 			}
 		}
+	}
+
+	private enum class Buttons(
+		val route: String,
+		val text: String
+	) {
+		FIRST(first.routeWithParams, "First"),
+		SECOND(second.routeWithParams,  "Second"),
+		THIRD(third.routeWithParams, "Third"),
+		FOURTH(forth.routeWithParams, "Fourth"),
+		FIFTH(fifth.routeWithParams, "Fifth"),
+		SIXTH(sixth.routeWithParams, "Sixth"),
+		SEVENTH(seventh.routeWithParams, "Seventh"),
+		EIGHTH(eighth.routeWithParams, "Eighth")
+		;
+		val run: @Composable (navController: NavHostController) -> Unit = {
+			Button(
+				modifier = Modifier.fillMaxWidth(),
+				onClick = { it.navigate(route) }
+			) {
+				Text(text = text)
+			}
+		}
+
 	}
 
 
