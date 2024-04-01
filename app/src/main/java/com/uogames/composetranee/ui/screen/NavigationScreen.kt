@@ -46,6 +46,7 @@ object NavigationScreen {
 			composable(fifth.route) { FifthScreen.Show() }
 			composable(sixth.route) { SixthScreen.Show() }
 			composable(seventh.route) { SeventhScreen.Show() }
+			composable(eighth.route) {}
 		}
 	}
 
@@ -59,7 +60,7 @@ object NavigationScreen {
 				.padding(16.dp),
 			contentAlignment = Alignment.TopCenter,
 		) {
-			LazyVerticalGrid(columns = GridCells.Fixed(2)) {
+			LazyVerticalGrid(columns = GridCells.Adaptive(150.dp)) {
 				items(Buttons.entries.size){
 					Buttons.entries[it].run(navController)
 				}
