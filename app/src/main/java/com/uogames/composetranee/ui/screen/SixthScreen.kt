@@ -23,22 +23,33 @@ object SixthScreen {
 	) {
 		var color by remember { mutableStateOf(Color.Yellow) }
 		var second by remember { mutableStateOf(Color.Yellow) }
+		val updateColor = { it: Color ->
+			second = color
+			color = it
+		}
 		Column {
 			ColorBox(
 				modifier = Modifier
 					.weight(1f)
 					.fillMaxSize(),
 				color,
-				updateColor = {
-					second = color
-					color = it
-				}
+				updateColor = updateColor
 			)
 			Box(
 				modifier = Modifier
 					.background(second)
 					.weight(1f)
 					.fillMaxSize()
+					.clickable {
+						updateColor(
+							Color(
+								Random.nextFloat(),
+								Random.nextFloat(),
+								Random.nextFloat(),
+								1f
+							)
+						)
+					}
 			) {
 
 			}

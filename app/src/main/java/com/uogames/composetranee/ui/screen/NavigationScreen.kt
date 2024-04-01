@@ -27,35 +27,22 @@ object NavigationScreen {
 	private val forth = Destination(route = "forth")
 	private val fifth = Destination(route = "fifth")
 	private val sixth = Destination(route = "sixth")
-
+	private val seventh = Destination(route = "seventh")
+	private val eighth = Destination(route = "eighth")
 
 	@Composable
 	fun Show() {
 		val navController = rememberNavController()
 		NavHost(navController = navController, startDestination = navigator.route) {
-			composable(navigator.route) {
-				Buttons(navController = navController)
-			}
-			composable(first.route) {
-				FirstScreen.Show()
-			}
-			composable(second.route) {
-				SecondScreen.Show()
-			}
-			composable(third.route) {
-				ThirdScreen.Show()
-			}
-			composable(forth.route) {
-				ForthScreen.Show()
-			}
-			composable(fifth.route) {
-				FifthScreen.Show()
-			}
-			composable(sixth.route) {
-				SixthScreen.Show()
-			}
+			composable(navigator.route) { Buttons(navController = navController) }
+			composable(first.route) { FirstScreen.Show() }
+			composable(second.route) { SecondScreen.Show() }
+			composable(third.route) { ThirdScreen.Show() }
+			composable(forth.route) { ForthScreen.Show() }
+			composable(fifth.route) { FifthScreen.Show() }
+			composable(sixth.route) { SixthScreen.Show() }
+			composable(seventh.route) { SeventhScreen.Show() }
 		}
-
 	}
 
 	@Composable
@@ -102,6 +89,12 @@ object NavigationScreen {
 					onClick = { navController.navigate(sixth.route) }
 				) {
 					Text(text = "Sixth")
+				}
+				Button(
+					modifier = Modifier.fillMaxWidth(),
+					onClick = { navController.navigate(seventh.route) }
+				) {
+					Text(text = "Seventh")
 				}
 			}
 		}
