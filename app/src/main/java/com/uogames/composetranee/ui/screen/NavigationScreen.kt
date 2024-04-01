@@ -46,7 +46,7 @@ object NavigationScreen {
 			composable(fifth.route) { FifthScreen.Show() }
 			composable(sixth.route) { SixthScreen.Show() }
 			composable(seventh.route) { SeventhScreen.Show() }
-			composable(eighth.route) {}
+			composable(eighth.route) { EighthScreen.Show() }
 		}
 	}
 
@@ -61,8 +61,8 @@ object NavigationScreen {
 			contentAlignment = Alignment.TopCenter,
 		) {
 			LazyVerticalGrid(columns = GridCells.Adaptive(150.dp)) {
-				items(Buttons.entries.size){
-					Buttons.entries[it].run(navController)
+				items(Buttons.entries.size) {
+					Buttons.entries[it].Run(navController)
 				}
 			}
 		}
@@ -73,7 +73,7 @@ object NavigationScreen {
 		val text: String
 	) {
 		FIRST(first.routeWithParams, "First"),
-		SECOND(second.routeWithParams,  "Second"),
+		SECOND(second.routeWithParams, "Second"),
 		THIRD(third.routeWithParams, "Third"),
 		FOURTH(forth.routeWithParams, "Fourth"),
 		FIFTH(fifth.routeWithParams, "Fifth"),
@@ -81,10 +81,12 @@ object NavigationScreen {
 		SEVENTH(seventh.routeWithParams, "Seventh"),
 		EIGHTH(eighth.routeWithParams, "Eighth")
 		;
-		val run: @Composable (navController: NavHostController) -> Unit = {
+
+		@Composable
+		fun Run(navController: NavHostController){
 			Button(
 				modifier = Modifier.fillMaxWidth(),
-				onClick = { it.navigate(route) }
+				onClick = { navController.navigate(route) }
 			) {
 				Text(text = text)
 			}
