@@ -33,6 +33,7 @@ object NavigationScreen {
 	private val sixth = Destination(route = "sixth")
 	private val seventh = Destination(route = "seventh")
 	private val eighth = Destination(route = "eighth")
+	private val ninth = Destination(route = "ninth")
 
 	@Composable
 	fun Show() {
@@ -47,6 +48,7 @@ object NavigationScreen {
 			composable(sixth.route) { SixthScreen.Show() }
 			composable(seventh.route) { SeventhScreen.Show() }
 			composable(eighth.route) { EighthScreen.Show() }
+			composable(ninth.route) { NinthScreen.Show()}
 		}
 	}
 
@@ -79,11 +81,12 @@ object NavigationScreen {
 		FIFTH(fifth.routeWithParams, "Fifth"),
 		SIXTH(sixth.routeWithParams, "Sixth"),
 		SEVENTH(seventh.routeWithParams, "Seventh"),
-		EIGHTH(eighth.routeWithParams, "Eighth")
+		EIGHTH(eighth.routeWithParams, "Eighth"),
+		NINTH(ninth.routeWithParams, "Ninth")
 		;
 
 		@Composable
-		fun Run(navController: NavHostController){
+		fun Run(navController: NavHostController) {
 			Button(
 				modifier = Modifier.fillMaxWidth(),
 				onClick = { navController.navigate(route) }
