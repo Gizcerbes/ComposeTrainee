@@ -17,6 +17,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.uogames.composetranee.ui.screen.tenth.TenthScreen
 
 object NavigationScreen {
 	private data class Destination(
@@ -34,6 +35,8 @@ object NavigationScreen {
 	private val seventh = Destination(route = "seventh")
 	private val eighth = Destination(route = "eighth")
 	private val ninth = Destination(route = "ninth")
+	private val tenth = Destination(route = "tenth")
+	private val eleventh = Destination(route = "eleventh")
 
 	@Composable
 	fun Show() {
@@ -48,7 +51,9 @@ object NavigationScreen {
 			composable(sixth.route) { SixthScreen.Show() }
 			composable(seventh.route) { SeventhScreen.Show() }
 			composable(eighth.route) { EighthScreen.Show() }
-			composable(ninth.route) { NinthScreen.Show()}
+			composable(ninth.route) { NinthScreen.Show() }
+			composable(tenth.route) { TenthScreen.Show() }
+			composable(eleventh.route) { EleventhScreen.Show() }
 		}
 	}
 
@@ -82,7 +87,9 @@ object NavigationScreen {
 		SIXTH(sixth.routeWithParams, "Sixth"),
 		SEVENTH(seventh.routeWithParams, "Seventh"),
 		EIGHTH(eighth.routeWithParams, "Eighth"),
-		NINTH(ninth.routeWithParams, "Ninth")
+		NINTH(ninth.routeWithParams, "Ninth"),
+		TENTH(tenth.routeWithParams, "Tenth"),
+		ELEVENTH(eleventh.routeWithParams, "Eleventh")
 		;
 
 		@Composable
