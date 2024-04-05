@@ -75,7 +75,7 @@ object EleventhScreen {
 					style = Stroke(strokeWidth.toPx(), cap = StrokeCap.Round)
 				)
 			}
-			Text(text = (curPercentage.value * number).toInt().toString(), color = Color.Black)
+			Text(text = (curPercentage.value * number).toInt().toString(), color = Color.Black, fontSize = fontSize)
 		}
 	}
 
