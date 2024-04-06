@@ -17,4 +17,5 @@ object Font {
 		Font(R.font.lexend_extra_bold, FontWeight.ExtraBold),
 	)
 
+
 }
