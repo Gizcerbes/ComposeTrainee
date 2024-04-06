@@ -1,7 +1,6 @@
 package com.uogames.composetranee.ui.screen
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -41,6 +40,7 @@ object NavigationScreen {
 	private val twelfth = Destination(route = "twelfth")
 	private val thirteenth = Destination(route = "thirteenth")
 	private val fourteenth = Destination(route = "fourteenth")
+	private val fifteenth = Destination(route = "fifteenth")
 
 	@Composable
 	fun Show() {
@@ -60,7 +60,8 @@ object NavigationScreen {
 			composable(eleventh.route) { EleventhScreen.Show() }
 			composable(twelfth.route) { TwelfthScreen.Show() }
 			composable(thirteenth.route) { ThirteenthScreen.Show() }
-			composable(fourteenth.route) { Fourteenth.Show()}
+			composable(fourteenth.route) { FourteenthScreen.Show() }
+			composable(fifteenth.route) { FifteenthScreen.Show() }
 		}
 	}
 
@@ -99,7 +100,8 @@ object NavigationScreen {
 		ELEVENTH(eleventh.routeWithParams, "Eleventh"),
 		TWELFTH(twelfth.routeWithParams, "Twelfth"),
 		THIRTEENTH(thirteenth.routeWithParams, "Thirteenth"),
-		FOURTEENTH(fourteenth.routeWithParams, "Fourteenth")
+		FOURTEENTH(fourteenth.routeWithParams, "Fourteenth"),
+		FIFTEENTH(fifteenth.routeWithParams, "Fifteenth")
 		;
 
 		@Composable

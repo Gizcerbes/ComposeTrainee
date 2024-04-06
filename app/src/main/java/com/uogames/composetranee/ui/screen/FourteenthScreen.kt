@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -32,7 +33,7 @@ import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 
-object Fourteenth {
+object FourteenthScreen {
 
 
 	@Composable
@@ -63,7 +64,7 @@ object Fourteenth {
 	) {
 		var size by remember { mutableStateOf(IntSize.Zero) }
 		var value by remember { mutableFloatStateOf(initialValue) }
-		var currentTime by remember { mutableStateOf(totalTime) }
+		var currentTime by remember { mutableLongStateOf(totalTime) }
 		var isTimeRunning by remember { mutableStateOf(false) }
 
 		LaunchedEffect(key1 = currentTime, key2 = isTimeRunning) {
