@@ -40,6 +40,7 @@ object NavigationScreen {
 	private val eleventh = Destination(route = "eleventh")
 	private val twelfth = Destination(route = "twelfth")
 	private val thirteenth = Destination(route = "thirteenth")
+	private val fourteenth = Destination(route = "fourteenth")
 
 	@Composable
 	fun Show() {
@@ -59,6 +60,7 @@ object NavigationScreen {
 			composable(eleventh.route) { EleventhScreen.Show() }
 			composable(twelfth.route) { TwelfthScreen.Show() }
 			composable(thirteenth.route) { ThirteenthScreen.Show() }
+			composable(fourteenth.route) { Fourteenth.Show()}
 		}
 	}
 
@@ -96,7 +98,8 @@ object NavigationScreen {
 		TENTH(tenth.routeWithParams, "Tenth"),
 		ELEVENTH(eleventh.routeWithParams, "Eleventh"),
 		TWELFTH(twelfth.routeWithParams, "Twelfth"),
-		THIRTEENTH(thirteenth.routeWithParams, "Thirteenth")
+		THIRTEENTH(thirteenth.routeWithParams, "Thirteenth"),
+		FOURTEENTH(fourteenth.routeWithParams, "Fourteenth")
 		;
 
 		@Composable
